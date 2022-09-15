@@ -22,12 +22,11 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupView()
         setupListener()
+        setupView()
     }
 
     fun setupView(){
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val intentType = intent.getIntExtra("intent_type", 0)
 
