@@ -17,8 +17,13 @@
         android:text="CatatanQu"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textSize="24sp" />
+    
+<!--    <SearchView-->
+<!--        android:layout_width=""-->
+<!--        android:layout_height=""-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_note"

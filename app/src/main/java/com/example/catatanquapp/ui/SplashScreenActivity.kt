@@ -10,6 +10,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
+import androidx.constraintlayout.motion.widget.MotionLayout
 import com.example.catatanquapp.MainActivity
 import com.example.catatanquapp.R
 import com.example.catatanquapp.databinding.ActivitySplashScreenBinding
@@ -22,11 +23,42 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Handler(Looper.getMainLooper()).postDelayed(
-            {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }, 2000)
+        binding.root.apply {
+            this.startLayoutAnimation()
+
+            addTransitionListener(object : MotionLayout.TransitionListener{
+                override fun onTransitionStarted(
+                    motionLayout: MotionLayout?,
+                    startId: Int,
+                    endId: Int
+                ) {
+
+                }
+
+                override fun onTransitionChange(
+                    motionLayout: MotionLayout?,
+                    startId: Int,
+                    endId: Int,
+                    progress: Float
+                ) {
+
+                }
+
+                override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                }
+
+                override fun onTransitionTrigger(
+                    motionLayout: MotionLayout?,
+                    triggerId: Int,
+                    positive: Boolean,
+                    progress: Float
+                ) {
+                }
+
+            })
+
+        }
     }
 
 //        // text to set in textView
